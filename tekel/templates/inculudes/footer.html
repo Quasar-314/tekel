@@ -1,0 +1,72 @@
+{% load static %}
+
+<!--  footer -->
+<footer>
+   <div class="footer">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12">
+               <a class="logo_bottom" href="index.html">Işık Tekkel Bayi</a>
+            </div>
+            <div class="col-md-12">
+              
+            </div>
+            <div class="col-lg-9 col-md-8">
+               <div class="row">
+                  <div class="col-md-6">
+                     <div class="infoma text_align_left">
+                        <h3>Menu</h3>
+                        <ul class="menu_bottom">
+                           <li><a href="{% url 'index' %}">Anasayfa</a></li>
+                           <li><a href="{% url 'hakkımızda' %}">Hakkımızda</a></li>
+                           <li><a href="{% url 'ürünler' %}">İçecekler Ve Şarküteri</a></li>
+                           <li><a href="{% url 'galeri' %}">Galeri</a></li>
+                           <li><a href="{% url 'index' %}#blog">Blog</a></li>
+                           <li><a href="{% url 'index' %}#iletisim">İletişim</a></li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="infoma text_align_left">
+                        <h3>Ürünler</h3>
+                        <ul class="menu_bottom">
+                           <li><a href="{% url 'ürünler' %}">Biralar</a></li>
+                           <li><a href="{% url 'ürünler' %}">Şaraplar </a></li>
+                           <li><a href="{% url 'ürünler' %}">Viskiler</a></li>
+                           <li><a href="{% url 'ürünler' %}">Votkalar</a></li>
+                           <li><a href="{% url 'ürünler' %}">Şarküterilerimiz</a></li>
+                           <li><a href="{{site_bilgileri.link.link}}"target="_blank" rel="noopener noreferrer"> <i class="fa-solid fa-location-dot fa-spin" aria-hidden="true"></i> {{site_bilgileri.adres.address}}</a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-3 col-md-4">
+               <div class="infoma">
+                  <h3>İletişim</h3>
+                  <ul class="social_icon">                  
+                     <li><a href="{{site_bilgileri.instagram.instagram}}"target="_blank"><i class="fa fa-instagram" aria-hidden="true">Instagram</i></a></li>                     
+                  </ul>
+                  <ul class="iletisim conta" id="iletisim">
+                     <li><a href="tel:+9{{site_bilgileri.telefon.number}}"target="_blank"><i class="fa-sharp fa-solid fa-phone fa-shake" aria-hidden="true"></i>Telefon ile Ara</a></li>
+                    
+                    <li><a href="https://wa.me/{{site_bilgileri.whatsapp.number}}"target="_blank"><i class="fa-brands fa-whatsapp fa-beat-fade" aria-hidden="true"></i>WHATSHAPP SİRAPİŞ</a></li>
+                    <li><a href="{{site_bilgileri.link.link}}"target="_blank" rel="noopener noreferrer"> <i class="fa-solid fa-location-dot fa-spin" aria-hidden="true"></i> Konuma Gel</a></li>
+                    <li><a href="#harita-container"><i class="fa-sharp fa-solid fa-map-location-dot fa-beat-fade" aria-hidden="true"></i>{{site_bilgileri.adres.address}}</a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="copyright">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <p>© 2023 Tüm Hakları Saklıdır <a href="https://www.wareyazilim.com/" target="_blank">  Ware Yazılım</a></p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</footer>
+     <!-- end footer -->

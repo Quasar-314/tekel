@@ -1,0 +1,477 @@
+{% extends "leyout.html" %}
+
+
+{% block header %}
+{% include "inculudes/header.html" %}
+{% endblock header %}
+{% load static %}
+
+
+{% block slider %}
+
+
+      <!-- top -->
+      <div class="full_bg">
+        <div class="slider_main">
+           <div class="container-fluid">
+              <div class="row">
+                 <div class="col-md-12">
+                    <!-- carousel code -->
+                    <div id="carouselExampleIndicators" class="carousel slide">
+                       <ol class="carousel-indicators">
+                        {% for i in bannerlerim %}
+                          <li data-target="#carouselExampleIndicators" data-slide-to="{{i.sayfa_sirasi}}" class="active"></li>
+                        {% endfor %}
+                       </ol>
+                       <div class="carousel-inner">
+                          <!-- first slide -->
+                      
+                          <div class="carousel-item active">
+                             <div class="carousel-caption relative">
+                                <div class="row d_flex">
+
+                                   <div class="col-md-5">
+                                      <div class="zon_text">
+                                         <h1 data-animation="animated bounceInLeft">
+                                           sdfsdadeneme<br>
+                                            dasdsa
+                                         </h1>
+                                         <p data-animation="animated bounceInLeft">
+                                         dasd
+                                         </p>
+
+                                         <button class="btn btn-primary read_more bounceInLeft" data-animation="animated bounceInLeft" onclick="window.location.href='{% url 'ürünler' %}'">Ürünü Gör</button>
+                                         <button class="btn btn-primary read_more bounceInLeft" data-animation="animated bounceInLeft" onclick="window.location.href='https://wa.me/{{site_bilgileri.whatsapp.number}}'">WhatsApp Sipariş</button>
+
+                                       </div>
+                                   </div>
+
+                                   <div class="col-md-7">
+                                      <div class="coff_img">                                       
+                                         <figure class="slideimg">                                          
+                                             <img src="{{i.resim.resim.url}}" alt="{{i.etiket}}"/>
+                                          </figure>                                         
+                                       </div>
+                                   </div>
+                                   
+                                </div>
+                             </div>
+                           </div>
+                          
+                          {% for i in bannerlerim %}
+                          <div class="carousel-item ">
+                             <div class="carousel-caption relative">
+                                <div class="row d_flex">
+                                   <div class="col-md-5">
+                                      <div class="zon_text">
+                                         <h1 data-animation="animated bounceInLeft">
+                                            {{i.baslik1}}<br>
+                                            {{i.baslik2}}
+                                         </h1>
+                                         <p data-animation="animated bounceInLeft">
+                                          {{i.aciklama}}
+                                         </p>
+
+                                         <button class="btn btn-primary read_more bounceInLeft" data-animation="animated bounceInLeft" onclick="window.location.href='{% url 'ürünler' %}'">Ürünü Gör</button>
+                                         <button class="btn btn-primary read_more bounceInLeft" data-animation="animated bounceInLeft" onclick="window.location.href='https://wa.me/{{site_bilgileri.whatsapp.number}}'">WhatsApp Sipariş</button>
+
+                                       </div>
+                                   </div>
+
+                                   <div class="col-md-7">
+                                      <div class="coff_img">                                       
+                                         <figure class="slideimg">                                          
+                                             <img src="{{i.resim.resim.url}}" alt="{{i.etiket}}"/>
+                                          </figure>                                         
+                                       </div>
+                                   </div>
+
+                                </div>
+                             </div>
+                          </div>
+                          {% endfor %}
+                          <!-- second slide -->
+                          
+                          <!-- third slide-->
+                          
+                       </div>
+                       <!-- controls -->
+                       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                       <i class="fa fa-angle-left" aria-hidden="true"></i>
+                       <span class="sr-only">Previous</span>
+                       </a>
+                       <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                       <i class="fa fa-angle-right" aria-hidden="true"></i>
+                       <span class="sr-only">Next</span>
+                       </a>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+     <!-- end banner -->
+
+
+
+{% endblock slider %}
+
+
+{% static '' %}
+
+{% block about %}
+
+<div class="about">
+    <div class="container">
+       <div class="row d_flex grid">
+          <div class="col-md-6">
+             <div class="about_img text_align_center">
+                <figure>
+                  
+                  
+                  
+                 
+                   
+                  <div class="video-container">
+                                      
+                     
+                     {% for i in hakkinda_video %}
+                     
+                     <video id="myVideo"  controls>                        
+                       
+                        <source src="{{i.video.url}}" type="video/mp4">
+                        <source src="{{i.video.url}}" type="video/ogg">                       
+                     </video>
+                    
+                      {% endfor %}
+                     <div class="play-button" id="playButton"></div>
+                  </div>
+                    
+                    
+                    
+                    
+                    
+                </figure>
+             </div>
+          </div>
+          <div class="col-md-6 order1">
+           
+           
+           
+             <div class="titlepage text_align_left"> 
+                {% for i in  hakkinda %}
+               <h2>{{i.baslik1}} <br>{{i.baslik2}}</h2>
+                <p>{{i.aciklama}} </p> 
+                {% endfor %}
+                <a class="read_more" href="{% url 'hakkımızda' %}">Daha Fazla</a>
+             </div>
+           
+          </div>
+       </div>
+    </div>
+ </div>
+ <!-- end about -->
+
+{% endblock about %}
+
+
+
+
+
+{% block service %}
+
+      <!-- service -->
+      <div class="service">
+        <div class="container-fluid">
+
+         {% for i in  urunler_page %}       
+           <div class="row">
+              <div class="col-md-12">
+                 <div class="titlepage text_align_center">
+                    <h2>{{i.baslik}}</h2>
+                    <p> {{i.aciklama}}</p>
+                 </div>
+              </div>
+           </div>
+         {% endfor %}
+
+           <div class="row">
+              <div class="col-md-12">
+                 <!--  Demos -->
+                 <div class="owl-carousel owl-theme">
+
+                  {% for i in alkoller_resim %}
+                    <div class="item">
+                       <div class="service_box text_align_center">
+                          <div class="ser_img">
+                             <figure><img style="height: 300px; width: 300px;" src="{{i.resim.resim.url}}" alt="{{i.etiket}}"/></figure>
+                          </div>
+                          <h3>{{i.baslik}}</h3>
+                          <p>{{i.aciklama}}</p>
+                       </div>
+                    </div>
+                    {% endfor %}
+
+                    
+                    
+                   
+                 </div>
+              </div>
+              <div class="col-md-12">
+                 <a class="read_more" href="{% url 'ürünler' %}">Ürünleri Gör</a>
+              </div>
+           </div>
+        </div>
+     </div>
+     <!-- end service -->
+
+{% endblock service %}
+
+
+
+{% block galery %}
+
+      <!-- galery -->
+      <div class="galery">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-md-12">
+                  {% for i in  galeri_baslik %}
+                  
+                  
+                  <div class="titlepage text_align_center">
+                     <h2>{{i.baslik}}</h2>
+                     <p> 
+                        {{i.aciklama}}
+                     </p>
+                  </div>
+                  {% endfor %}
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-12">
+                  <!--  Demos -->
+                  <div class="owl-carousel owl-theme">
+
+                  
+
+
+
+                     {% for i in dukkan_resim %}
+                     
+                     
+                     <div class="item">
+                        <div class="galery_box text_align_center">
+                           <div class="galery_img btn btn-primary" data-toggle="modal" data-target="#{{i.ID_numarasi}}">
+                              
+                              <figure><img style="height: 300px; width: 300px;" src="{{i.resim.resim.url}}" alt="{{i.etiket}}"/></figure>
+                           </div>
+                           <h3>{{i.baslik}}</h3>
+                           <p>{{i.aciklama}}
+                           </p>
+                        </div>
+                     </div>    
+
+                     {% endfor %}
+                  </div>
+               </div>
+               
+
+         <!-- Modal -->
+         {% for i in dukkan_resim.all %}
+          <div class="modal fade" id="{{i.ID_numarasi}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">{{i.baslik}}</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <img src="{{i.resim.resim}}" alt="{{i.etiket}}">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                  
+                </div>
+              </div>
+             </div>
+           </div>
+           {% endfor %}
+
+     
+
+
+     
+
+
+
+     
+
+
+
+            </div>
+         </div>
+      </div>
+      <!-- end galery -->
+
+
+           
+          
+
+{% endblock galery %}
+
+
+
+
+{% block blog %}
+
+      <!-- section blue_bg -->
+      <div class="section blue_bg">
+        <div class="container-fluid">
+           <div class="row">
+              <!-- contact -->
+              <div class="col-lg-6 col-md-12">
+                 <div class="contact">
+                    <div class="row ">
+                       <div class="col-md-12">
+                          <div class="titlepage text_align_center">
+                             <h2>Yerimiz</h2>
+                          </div>
+                       </div>
+                       <div class="col-md-12">
+                          
+                        <div class="harita-container" id="harita-container">
+                              
+                           <iframe class="harita-iframe" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12041.087211825752!2d28.6579446!3d41.0193091!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b55f6ef08e837b%3A0xd6796343e15278e0!2zScWfxLFrIHRla2VsbCAmIMWeYXJrw7x0ZXJp!5e0!3m2!1str!2str!4v1697540794377!5m2!1str!2str" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                         </div>
+
+
+
+                       </div>
+                    </div>
+                 </div>
+              </div>
+              <!-- contact -->
+               <!-- testimonial section -->
+               <div class="col-lg-6 col-md-12">
+                  <div class="testimonial">
+                     <div class="row">
+                        <div class="col-md-12">
+                           <div class="titlepage text_align_left">
+                              <h2>İletişim</h2>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-md-12">
+                           <div id="myCarousel" class="carousel slide testimonial_Carousel " data-ride="carousel">
+                              <ol class="carousel-indicators">
+                                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                 <li data-target="#myCarousel" data-slide-to="1"></li>
+                                 <li data-target="#myCarousel" data-slide-to="2"></li>
+                              </ol>
+                             
+                              <div class="carousel-inner" id="blog">
+                                 <div class="carousel-item active ">
+                                    <div class="container">
+                                       <div class="carousel-caption ">
+                                          <div class="row">
+                                             <div class="col-md-12">
+                                                <div class="testimonial_box text_align_left">
+                                                   <p  style=" width: 680px; height: 540px;">
+                                                      İşetişim Kanallarımız <br>
+                                                      <a href="{{site_bilgileri.instagram.instagram}}">instagram</a><br>
+                                                      <a href="https://wa.me/{{site_bilgileri.whatsapp.number}}">WhatsApp</a><br>
+                                                      <a href="tel:+9{{site_bilgileri.telefon.number}}">Telefon</a><br>
+                                                      <a href="{{site_bilgileri.link.link}}"> {{site_bilgileri.adres.address}}</a>
+                                                   </p>
+                                                </div>
+                                             </div>
+                                             <div class="col-md-12">
+                                                <div class="testimonial_pro">
+                                                   <figure style=" height: 150px; width: 150px; ">
+
+                                                      <p style=" font-weight: bold; font-family: 'Arial', sans-serif;font-size: 15px; line-height: 1.5; color: red;">Işık <br style = " content: '\00a0';"> Şarkuteli&amp;Tekkel <br style = " content: '\00a0';">{{site_bilgileri.adres.address}}</p>
+                                                   
+                                                   </figure>
+                                                   <h3>Işık Şarkuteli <br><span class="cust">Tekel Bayi</span></h3>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+
+                                 {% for i in kart %}
+                              
+                                 
+                                 <div class="carousel-item">
+                                    <div class="container">
+                                       <div class="carousel-caption">
+                                          <div class="row">
+                                             <div class="col-md-12">
+                                                <div class="testimonial_box text_align_left">
+                                                   <p style=" width: 680px; height: 540px;">
+                                                     {{i.kartlar | safe}}
+                                                   </p>
+                                                </div>
+                                             </div>
+                                             <div class="col-md-12">
+                                                <div class="testimonial_pro">
+                                                   <figure><img style=" height: 150px; width: 150px; " src="{{i.resim.resim.url}}" alt="{{i.etiket}}"/></figure>
+                                                   <h3>Işık Şarkuteli <br><span class="cust">Tekel Bayi</span></h3>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 {% endfor %}
+
+
+
+                              </div>
+                              <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                              <i class="fa fa-angle-left" aria-hidden="true"></i>
+                              <span class="sr-only">Previous</span>
+                              </a>
+                              <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                              <i class="fa fa-angle-right" aria-hidden="true"></i>
+                              <span class="sr-only">Next</span>
+                              </a>
+                           </div>
+                        </div>
+                        
+                        <div class="col-md-12">
+                           <div class="coff">
+                              <figure><img src="{% static 'images/13.png' %}" alt="#"/></figure>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- end testimonial section -->
+           </div>
+        </div>
+     </div>
+     <!-- end section blue_bg -->
+
+{% endblock blog %}
+
+
+
+
+{% block contact %}
+
+{% endblock contact %}
+
+
+
+{% block footer %}
+
+{% include "inculudes/footer.html" %}
+
+{% endblock footer %}
+

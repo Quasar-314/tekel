@@ -1,0 +1,72 @@
+{% extends "leyout.html" %}
+
+{% block header %}
+{% include "inculudes/header.html" %}
+{% endblock header %}
+{% load static %}
+
+
+{% block galery %}
+
+
+<div class="service">
+    <div class="jumbotron mb-5" style="color: #db341e;        background: #000000 ; ">
+        <h1><i class="fa-solid fa-beer-mug-empty fa-bounce" style="color: #ffffff;"></i> IŞIK & ŞARKUTELİ TEKEL BAYİ</h1>
+        <p>ADRES        =><a href=""><i class="fa-solid fa-location-dot fa-spin" style="color: #ffffff;"></i></a></p>
+        <hr style="border-color: #db341e; margin-top: 20px; margin-bottom: 20px;">
+    </div>
+    <div class="container">
+        <div class="container-fluid">         
+            <div class="row flex" style="display: flex; flex-wrap: wrap;">
+
+                {% for i in galeri_resim %}                
+                
+                <div class="col-lg-4 col-sm-6" >
+                    <div class="thumbnail galery_img btn btn-primary" data-toggle="modal" data-target="#{{i.id_numara}}" style="border: 5px solid #f80000; padding: 10px; " >
+                        <img  style="height: 400px; width : 350px " src="{{i.resim.url}}" alt="{{i.etiket}}">
+                    </div>
+                </div>  
+                {% endfor %} 
+
+                {% for i in galeri_resim %}
+                <div class="modal fade" id="{{i.id_numara}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLongTitle">{{i.adlandir}}</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <img src="{{i.resim.url}}" alt="{{i.etiket}}">
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                          
+                        </div>
+                      </div>
+                     </div>
+                   </div>
+                {% endfor %}       
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock galery %}
+
+
+
+
+{% block footer %}
+
+{% include "inculudes/footer.html" %}
+
+{% endblock footer %}
+
+
